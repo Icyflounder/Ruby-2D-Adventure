@@ -1,0 +1,10 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:Template name="NPCDialogue" src="project://database/Assets/NPCDialogue.uxml?fileID=9197481963319205126&amp;guid=f02e30a9bfbf0e84c9f414a1015aaa09&amp;type=3#NPCDialogue" />
+    <engine:VisualElement name="HealthBarBackground" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/Art/Ruby/UI/UIHealthFrame.png?fileID=21300000&amp;guid=e04807cd45105ec409b00463fe6ab7b1&amp;type=3#UIHealthFrame&quot;); width: 320px; height: 142px; -unity-background-scale-mode: scale-to-fit;">
+        <engine:VisualElement name="HealthBarContainer" style="flex-grow: 1;">
+            <engine:VisualElement name="HealthBar" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Ruby/UI/UIHealthBar.png?fileID=21300000&amp;guid=be3322f3a1dbc6e44b25b63f3bb91e16&amp;type=3#UIHealthBar&quot;); position: absolute; height: 52px; width: 116px; top: 42px; left: 117px;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="CharacterPortrait" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Ruby/UI/CharacterPortrait.png?fileID=21300000&amp;guid=374193bc7008fa34ab9b2bbca376937b&amp;type=3#CharacterPortrait&quot;); -unity-background-scale-mode: scale-to-fit; height: 148px; width: 98px; align-items: flex-start; position: absolute; left: 38px; top: -2px;" />
+    </engine:VisualElement>
+    <engine:Instance template="NPCDialogue" style="height: 280px; width: 215px; position: absolute; top: 616px; left: 1px; right: 959px; bottom: -349px;" />
+</engine:UXML>
