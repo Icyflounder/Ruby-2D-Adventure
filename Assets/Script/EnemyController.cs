@@ -13,24 +13,22 @@ public class EnemyController : MonoBehaviour
     // Private variables
     Rigidbody2D rigidbody2d;
     Animator animator;
+    AudioSource audioSource;
     float timer;
     int direction = 1;
     bool broken = true;
-
 
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         timer = changeTime;
-
     }
-
 
     void Update()
     {
         timer -= Time.deltaTime;
-
 
         if (timer < 0)
         {
@@ -38,7 +36,6 @@ public class EnemyController : MonoBehaviour
             timer = changeTime;
         }
     }
-
 
     void FixedUpdate()
     {
@@ -62,15 +59,12 @@ public class EnemyController : MonoBehaviour
             animator.SetFloat("Move Y", 0);
         }
 
-
         rigidbody2d.MovePosition(position);
     }
-
 
     void OnTriggerEnter2D(Collider2D other)
     {
         PlayerController player = other.gameObject.GetComponent<PlayerController>();
-
 
         if (player != null)
         {
@@ -78,20 +72,16 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
     }
-
-
 
     public void Fix()
     {
         broken = false;
         GetComponent<Rigidbody2D>().simulated = false;
         animator.SetTrigger("Fixed");
+        audioSource.Stop();
     }
-
-
 }

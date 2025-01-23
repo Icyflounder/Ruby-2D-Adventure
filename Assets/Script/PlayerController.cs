@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
 
     public GameObject projectilePrefab;
 
+    AudioSource audioSource;
+
+
 
     void Start()
     {
@@ -32,6 +35,7 @@ public class PlayerController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -61,12 +65,10 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-
         if (Input.GetKeyDown(KeyCode.C))
         {
             Launch();
         }
-
 
         if (Input.GetKeyDown(KeyCode.X))
         {
@@ -75,14 +77,11 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
-
     void FixedUpdate()
     {
         Vector2 position = (Vector2)rigidbody2d.position + move * speed * Time.deltaTime;
         rigidbody2d.MovePosition(position);
     }
-
 
 
     public void ChangeHealth(int amount)
@@ -102,6 +101,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
+
     void Launch()
     {
         GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
@@ -109,6 +109,7 @@ public class PlayerController : MonoBehaviour
         projectile.Launch(moveDirection, 300);
         animator.SetTrigger("Launch");
     }
+
 
 
     void FindFriend()
@@ -124,5 +125,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
+    }
 
 }
